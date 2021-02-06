@@ -10,11 +10,13 @@
 
         {{ partial "calculator" }}
 
-        <div id="result" class="content-wrapper">
-
-            <h2 class="text-center mb-4">{{ .Title }}</h3>
+        <div class="content-wrapper">
             
-            {{- .Content }}
+            <div id="result">
+                <h2 class="text-center mb-4">{{ .Title }}</h2>
+                {{- .Content }}
+            </div>
+            <img class="loading-icon" src="/loading.svg">
 
         </div>
 

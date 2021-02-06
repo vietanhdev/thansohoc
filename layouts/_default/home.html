@@ -10,9 +10,12 @@
 
         {{ partial "calculator" }}
 
-        <div id="result" class="content-wrapper">
-            
-            {{ partial "homepage" }}
+        <div class="content-wrapper">
+
+            <div id="result">
+                {{ partial "homepage" }}
+            </div>
+            <img class="loading-icon" src="/loading.svg">
 
         </div>
 
