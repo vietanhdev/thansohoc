@@ -63,8 +63,9 @@ $(function () {
 
         let rsum = num;
 
-        if (![11, 22, 33].includes(rsum) && String(rsum).length > 1) {
-            rsum = String(num)
+        while (![11, 22, 33].includes(rsum) && String(rsum).length > 1) {
+            console.log(rsum);
+            rsum = String(rsum)
             .split('')
             .map(Number)
             .reduce(function (a, b) {
