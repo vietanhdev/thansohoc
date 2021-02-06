@@ -1,5 +1,5 @@
 body {
-  background: url(bg.jpg);
+  background: url(/bg.jpg);
   background-size: 100% auto;
 }
 
@@ -23,7 +23,7 @@ h1 a:hover {
 }
 
 
-.content-wrapper {
+.content-wrapper, .footer {
   width: 60rem;
   max-width: 100%;
   background-color: #f5f5f5e7;
@@ -59,7 +59,8 @@ ul {
 
 
 .footer {
-  margin-top: 4rem;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
 }
 
 
