@@ -95,35 +95,46 @@ function calcWordValue(word, mode="ALL") {
     let letters = word.split('');
 
     if (mode == "DLBT") {
+
+        console.log("DLBT");
+
         for (let i = 1; i < letters.length; ++i) {
-            
             // Remove y if y lies after a vowel
             if (letters[i] == "y" && "ueoai".includes(letters[i-1])) {
                 letters[i] = ".";
             }
+        }
 
+        for (let i = 0; i < letters.length; ++i) {
             // Only keep u, e, o, a, i, y
             if (!"ueoaiy".includes(letters[i])) {
                 letters[i] = ".";
             }
         }
+
+        console.log(letters);
+        
     } else if (mode == "NC") {
+
+        console.log("NC");
 
         if (letters[0] == "y") {
             letters[0] = ".";
         }
 
         for (let i = 1; i < letters.length; ++i) {
-            
             if (letters[i] == "y" && !"ueoai".includes(letters[i-1])) {
                 letters[i] = ".";
             }
+        }
 
+        for (let i = 0; i < letters.length; ++i) {
             if ("ueoai".includes(letters[i])) {
                 letters[i] = ".";
             }
-
         }
+
+        console.log(letters);
     }
 
     for (let i = 0; i < letters.length; ++i) {
