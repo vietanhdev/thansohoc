@@ -1,3 +1,15 @@
-baseURL = "http://example.org/"
-languageCode = "en-us"
-title = "My New Hugo Site"
+baseURL = "https://thansohoc.aicurious.io/"
+languageCode = "vi-vn"
+title = "Thần số học"
+
+# directory(s) where your articles are located
+mainSections = ["posts"]
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      hardWraps = false
+      unsafe = true # change to false to disable inclusion of rawHTML and math functions
+      xhtml = false
+    [markup.goldmark.extensions]
+      typographer = false

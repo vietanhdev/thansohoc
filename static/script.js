@@ -210,9 +210,14 @@ function calcNc(words) {
 
 $(function () {
 
-    var input = document.querySelector('input');
-    var button = document.querySelector('button');
-    var result = document.querySelector('.result');
+    $.ajaxSetup({async:false});
+
+    function getData(url) {
+        $.get(url, function(data) {
+            let content = $("#result", data).html(); // finds <div id='mainDiv'>...</div>
+            $("#result").append(content);
+        }, "html");
+    }
 
     function calculate() {
 
@@ -220,27 +225,50 @@ $(function () {
 
         // Extract date
         let date = new Date($('#birthday').val());
-        let day = date.getDate() | 0;
-        let month = date.getMonth() + 1 | 0;
-        let year = date.getFullYear() | 0;
+        let day = date.getDate();
+        let month = date.getMonth() + 1;
+        let year = date.getFullYear();
+
+        if ($("#name").val().length == 0) {
+            alert("Xin hãy nhập tên của bạn.");
+            return;
+        }
+
+        if (isNaN(day) || isNaN(month) || isNaN(year)) {
+            alert("Xin hãy kiểm tra lại ngày sinh.");
+            return;
+        }
+         
 
         $("#result").html("");
         $("#result").append('<h2 class="text-center mb-4">Kết quả:</h3>');
         
         let bhdd = calcBhdd(day, month, year);
-        $("#result").append('<p><b>Bài học đường đời (BHDD) = </b>' + bhdd + '</p>');
+        $("#result").append('<p class="calculation-steps"><b>Bài học đường đời (BHDD) = ' + bhdd + '</b>. <a href="/posts/cach-tinh/bhdd" target="_blank">Xem cách tính.</a></p>');
+        if (bhdd != 0) {
+            getData("/posts/bhdd/" + bhdd);
+        }
 
         let words = preprocessStr($('#name').val());
         console.log("Preprocessed name: " + words);
 
         let nltn = calcNltn(words);
-        $("#result").append('<p><b>Năng lực tự nhiên (NLTN) = </b>' + nltn + '</p>');
+        $("#result").append('<p class="calculation-steps"><b>Năng lực tự nhiên (NLTN) = ' + nltn + '</b>. <a href="/posts/cach-tinh/dlbt-nltn-nc" target="_blank">Xem cách tính.</a></p>');
+        if (nltn != 0) {
+            getData("/posts/nltn/" + nltn);
+        }
 
         let dlbt = calcDlbt(words);
-        $("#result").append('<p><b>Động lực bên trong (ĐLBT) = </b>' + dlbt + '</p>');
+        $("#result").append('<p class="calculation-steps"><b>Động lực bên trong (ĐLBT) = ' + dlbt + '</b>. <a href="/posts/cach-tinh/dlbt-nltn-nc" target="_blank">Xem cách tính.</a></p>');
+        if (dlbt != 0) {
+            getData("/posts/dlbt/" + dlbt);
+        }
 
         let nc = calcNc(words);
-        $("#result").append('<p><b>Nhân cách bên ngoài (NC) = </b>' + nc + '</p>');
+        $("#result").append('<p class="calculation-steps"><b>Nhân cách bên ngoài (NC) = ' + nc + '</b>. <a href="/posts/cach-tinh/dlbt-nltn-nc" target="_blank">Xem cách tính.</a></p>');
+        if (nc != 0) {
+            getData("/posts/nc/" + nc);
+        }
 
 
     }

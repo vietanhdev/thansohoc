@@ -1,3 +1,4 @@
+{{- define "main" }}
 <!DOCTYPE html>
 <html>
 
@@ -19,7 +20,9 @@
 
         <div class="content-wrapper">
             <h1 class="text-center">
-                Xem dự đoán số mệnh qua Thần số học Pythagoras
+                <a href="/">
+                    Xem dự đoán số mệnh qua Thần số học Pythagoras
+                </a>
             </h1>
             <p>
                 Môn khoa học huyền bí Tây phương gọi là <b>Thần Số (Numerology)</b> dựa theo nhân sinh quan của Thần Tam Giác (Divine Triangle). Nhờ Thần Số mà người ta đoán được nhân cách, tính tình, công việc, năng khiếu, tình duyên v.v... của một đời người. Numerology đã phát xuất 600 năm trước Thiên Chúa giáng sinh và do nhà toán học Pythagoras lập ra, dùng phương trình pythagorean theorem để giải đoán định mệnh.
@@ -39,8 +42,10 @@
         </div>
 
         <div id="result" class="content-wrapper">
+
+            <h2 class="text-center mb-4">{{ .Title }}</h3>
             
-            {{- .Content }}
+            {{ partial "homepage" }}
 
         </div>
     </div>
@@ -50,9 +55,7 @@
 
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
@@ -63,6 +66,7 @@
 </body>
 
 </html>
+{{ end }}
 
 
 

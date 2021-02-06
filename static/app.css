@@ -14,6 +14,14 @@ h1 {
   margin-bottom: 2rem;
 }
 
+h1 a {
+  color: rgb(56, 0, 0);
+}
+
+h1 a:hover {
+  text-decoration: none;
+}
+
 
 .content-wrapper {
   width: 60rem;
@@ -52,4 +60,9 @@ ul {
 
 .footer {
   margin-top: 4rem;
+}
+
+
+.calculation-steps {
+  text-align: center;
 }
