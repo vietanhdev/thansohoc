@@ -242,12 +242,16 @@ $(function () {
 
         $("#result").html("");
         $("#result").append('<h2 class="text-center mb-4">Kết quả:</h3>');
+        $("#result").append('<img class="loading-icon" src="/loading.svg">');
         
         let bhdd = calcBhdd(day, month, year);
         $("#result").append('<p class="calculation-steps"><b>Bài học đường đời (BHDD) = ' + bhdd + '</b>. <a href="/posts/cach-tinh/bhdd" target="_blank">Xem cách tính.</a></p>');
         if (bhdd != 0) {
             getData("/posts/bhdd/" + bhdd);
         }
+
+        $(".loading-icon").remove();
+        $("#result").append('<img class="loading-icon" src="/loading.svg">');
 
         let words = preprocessStr($('#name').val());
         console.log("Preprocessed name: " + words);
@@ -258,17 +262,25 @@ $(function () {
             getData("/posts/nltn/" + nltn);
         }
 
+        $(".loading-icon").remove();
+        $("#result").append('<img class="loading-icon" src="/loading.svg">');
+
         let dlbt = calcDlbt(words);
         $("#result").append('<p class="calculation-steps"><b>Động lực bên trong (ĐLBT) = ' + dlbt + '</b>. <a href="/posts/cach-tinh/dlbt-nltn-nc" target="_blank">Xem cách tính.</a></p>');
         if (dlbt != 0) {
             getData("/posts/dlbt/" + dlbt);
         }
 
+        $(".loading-icon").remove();
+        $("#result").append('<img class="loading-icon" src="/loading.svg">');
+
         let nc = calcNc(words);
         $("#result").append('<p class="calculation-steps"><b>Nhân cách bên ngoài (NC) = ' + nc + '</b>. <a href="/posts/cach-tinh/dlbt-nltn-nc" target="_blank">Xem cách tính.</a></p>');
         if (nc != 0) {
             getData("/posts/nc/" + nc);
         }
+
+        $(".loading-icon").remove();
 
 
     }
