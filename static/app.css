@@ -75,3 +75,7 @@ ul {
   margin-bottom: 4rem;
   display: block;
 }
+
+#result {
+  padding-top: 3rem;
+}
