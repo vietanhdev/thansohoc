@@ -231,17 +231,17 @@ $(function () {
         }, "html");
     }
 
-    function calculate() {
 
-        console.log("Calculating...");
+    function calculateBtnClick() {
 
         // Extract date
         let date = new Date($('#birthday').val());
         let day = date.getDate();
         let month = date.getMonth() + 1;
         let year = date.getFullYear();
+        let name = $("#name").val();
 
-        if ($("#name").val().length == 0) {
+        if (name.length == 0) {
             alert("Xin hãy nhập tên của bạn.");
             return;
         }
@@ -250,11 +250,26 @@ $(function () {
             alert("Xin hãy kiểm tra lại ngày sinh.");
             return;
         }
-         
 
+        // Clear old content and show loading icon
         $("#result").html("");
-        $("#result").append('<h2 class="text-center mb-4">Kết quả:</h3>');
         $(".loading-icon").show();
+
+        // Delay a little to show loading icon
+        setTimeout(function() {
+            // Run calculation
+            calculate(day, month, year, name);
+            // Hide loading icon
+            $(".loading-icon").hide();
+        }, 1000);
+
+    }
+
+
+    function calculate(day, month, year, name) {
+
+        console.log("Calculating...");
+        $("#result").append('<h2 class="text-center mb-4">Kết quả:</h3>');
         
         let bhdd = calcBhdd(day, month, year);
         $("#result").append('<p class="calculation-steps"><b>Bài học đường đời (BHDD) = ' + bhdd + '</b>. <a href="/posts/cach-tinh/bhdd" target="_blank">Xem cách tính.</a></p>');
@@ -262,7 +277,7 @@ $(function () {
             getData("/posts/bhdd/" + bhdd);
         }
 
-        let words = preprocessStr($('#name').val());
+        let words = preprocessStr(name);
         console.log("Preprocessed name: " + words);
 
         let nltn = calcNltn(words);
@@ -283,13 +298,10 @@ $(function () {
             getData("/posts/nc/" + nc);
         }
 
-        $(".loading-icon").hide();
-
-
     }
 
 
-    $("#calculate-btn").click(calculate);
+    $("#calculate-btn").click(calculateBtnClick);
 
 
 });

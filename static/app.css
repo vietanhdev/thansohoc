@@ -74,13 +74,18 @@ ul {
   text-align: center;
 }
 
-.loading-icon {
-  width: 8rem;
+.loading-icon img {
+  width: 6rem;
   margin-left: auto;
   margin-right: auto;
   margin-top: 2rem;
-  margin-bottom: 4rem;
   display: block;
+}
+
+.loading-icon p {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 4rem;
 }
 
 #result {
