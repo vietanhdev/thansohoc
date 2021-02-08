@@ -1,10 +1,10 @@
 <head>
-    <title>Xem dự đoán số mệnh qua Thần số học Pythagoras </title>
-    <meta name="description" content="Trong Thần số học, hệ thống các con số cho biết tính cách và vận mệnh của một con người. Từ tên và ngày sinh, các nhà Thần số học có thể tính toán các con số là tượng trưng cho những đặc điểm, sức mạnh, số phận mỗi cá nhân. Có thể nói Thần số học là một tấm gương phản chiếu hành trình cuộc đời của một người dưới dạng các con số. Hãy cùng khám phá vận mệnh của bản thân thông qua Công cụ tính toán Thần số học của chúng tôi!">
+    <title>{{ .Site.Title }}</title>
+    <meta name="description" content="{{ .Site.Params.description }}">
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/app.css?t={{ now.Unix }}">
-    {{ partial "seo" }}
+    {{ partial "seo" . }}
 </head>

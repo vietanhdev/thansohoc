@@ -61,6 +61,12 @@ ul {
 .footer {
   margin-top: 2rem;
   margin-bottom: 4rem;
+  text-align: center;
+}
+
+.footer a {
+  color: #000;
+  font-weight: bold;
 }
 
 

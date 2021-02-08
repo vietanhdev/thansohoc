@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 
-{{ partial "head" }}
+{{ partial "head" . }}
 
 <body>
 
@@ -13,13 +13,13 @@
         <div class="content-wrapper">
 
             <div id="result">
-                {{ partial "homepage" }}
+                {{ partial "homepage" . }}
             </div>
             <img class="loading-icon" src="/loading.svg">
 
         </div>
 
-        {{ partial "footer" }}
+        {{ partial "footer" . }}
 
     </div>
     

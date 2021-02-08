@@ -1,6 +1,6 @@
 baseURL = "https://thansohoc.aicurious.io/"
 languageCode = "vi-vn"
-title = "Thần số học"
+title = "Xem dự đoán số mệnh qua Thần số học Pythagoras"
 
 # directory(s) where your articles are located
 mainSections = ["posts"]
@@ -13,3 +13,7 @@ mainSections = ["posts"]
       xhtml = false
     [markup.goldmark.extensions]
       typographer = false
+
+[params]
+  description = "Trong Thần số học, hệ thống các con số cho biết tính cách và vận mệnh của một con người. Từ tên và ngày sinh, các nhà Thần số học có thể tính toán các con số là tượng trưng cho những đặc điểm, sức mạnh, số phận mỗi cá nhân. Có thể nói Thần số học là một tấm gương phản chiếu hành trình cuộc đời của một người dưới dạng các con số. Hãy cùng khám phá vận mệnh của bản thân thông qua Công cụ tính toán Thần số học của chúng tôi!"
+  footer = 'Mã nguồn phát triển bởi <a href="https://aicurious.io/about/" target="_blank">vietanhdev</a>.'
